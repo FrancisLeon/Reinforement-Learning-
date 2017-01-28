@@ -1,0 +1,19 @@
+from ChineseFQI import FittedQIteration
+from DBmodel import dataModel
+from testData import testDataModel
+
+
+if __name__ == '__main__':
+  
+    dataModel = dataModel()
+    trainData = dataModel.buildRecords()    
+    
+    
+    ChineseFQI = FittedQIteration(max_iterations=2, epsilon=0.00001, discount=0.9)
+    
+    
+    ChineseFQI.run(trainData)
+    
+
+    V_function  = ChineseFQI.V
+    debug = 0
